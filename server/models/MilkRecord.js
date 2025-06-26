@@ -6,4 +6,4 @@ const MilkSchema = new mongoose.Schema({
     amountLitres: Number
 });
 
-module.exports = mongoose.model('Milk', MilkSchema);
+module.exports = mongoose.model('MilkRecord', MilkSchema);
