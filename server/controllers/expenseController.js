@@ -20,4 +20,13 @@ const createExpense = async(req, res) => {
     }
 };
 
-module.exports = {getExpenses, createExpense};
+const getSummary = async (req, res) => {
+    try {
+        const sammary = await Expense.find();
+        res.json(sammary);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}
+
+module.exports = {getExpenses, createExpense, getSummary};

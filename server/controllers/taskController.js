@@ -20,4 +20,23 @@ const createTask = async(req, res) => {
     }
 };
 
-module.exports = {getTasks, createTask};
+const updateTask = async (req, res) => {
+    try {
+        const task = await Task.find(t => t.title === parse(req.params.title));
+        Object.assign(task, req.body);
+        res.json(task);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+};
+
+const deleteTask = async (req, res) => {
+    try {
+        const task = await Task.filter(t => t.title !== parse(req.params.title));
+        res.status(204).json();
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+};
+
+module.exports = {getTasks, createTask, updateTask, deleteTask};
