@@ -6,7 +6,7 @@ const ExpenseSchema = new mongoose.Schema({
     description: String,
     date: Date,
     category: String,
-    addedBy: ObjectId (User)
+    addedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
 });
 
 module.exports = mongoose.model('Expense', ExpenseSchema);

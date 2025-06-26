@@ -6,7 +6,7 @@ const CowSchema = new mongoose.Schema({
     age: Number,
     healthStatus: String,
     averageMilk: Number,
-    addedBy: ObjectId (User)
+    addedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
 });
 
 module.exports = mongoose.model('Cow', CowSchema);

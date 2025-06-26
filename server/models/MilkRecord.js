@@ -1,7 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
 const MilkSchema = new mongoose.Schema({
-    cow: ObjectId (Cow),
+    cow: {type: mongoose.Schema.Types.ObjectId, ref: "Cow"},
     date: Date,
     amountLitres: Number
 });
