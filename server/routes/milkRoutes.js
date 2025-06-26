@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get('/api/milk', getMilk);
 router.post('/api/milk', createMilk);
-router.get('/api/milk/stats?range=30days', getMilk);
+router.get('/api/milk', getMilk);
 
 module.exports = router;
