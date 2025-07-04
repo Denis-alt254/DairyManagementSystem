@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Navbar from "./components/Navbar";
+import Tasks, { AddTasksForm } from "./pages/Tasks";
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
+import {Cows, AddCowForm, UpdateAndDeleteForm} from "./pages/Cows";
+import { Dashboard } from "./pages/Dashboard";
+import { AddExpenseFrom, Expenses } from "./pages/Expenses";
+import { AddMilkRecordForm, Milk } from "./pages/Milk";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+function App(){
+  return(
+    <div className="background">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element = {<Cows />}></Route>
+          <Route path="/addcow" element={<AddCowForm />}/>
+          <Route path="/updatedelete" element={<UpdateAndDeleteForm />}/>
+          <Route path="/tasks" element={<Tasks />}/>
+          <Route path="/addtask" element={<AddTasksForm />}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/addexpense" element={<AddExpenseFrom />}/>
+          <Route path="/expenses" element={<Expenses />}/>
+          <Route path="/milk" element={<Milk />}/>
+          <Route path="/addmilk" element={<AddMilkRecordForm />}/>
+        </Routes>
+      </main>
+    </div>
   )
 }
 
-export default App
+export default App;
