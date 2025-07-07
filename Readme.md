@@ -49,28 +49,6 @@ https://docs.google.com/presentation/d/e/2PACX-1vT1hkNmDVf-LQxTOGsQi8CaBECdIpM8v
 
 ---
 
-## 📂 Folder Structure (Basic)
-
-smart-dairy-farm/
-├── client/ # React frontend
-│ ├── public/
-│ └── src/
-│ ├── components/
-│ ├── pages/
-│ ├── services/
-│ └── App.js
-├── server/ # Node + Express backend
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── middleware/
-│ └── server.js
-├── .env
-├── package.json
-└── README.md
-
----
-
 ## 🛠️ Setup Instructions
 
 ### Prerequisites:
