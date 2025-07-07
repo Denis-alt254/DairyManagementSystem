@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { createExpense, getExpenses } from "../services/expenseService";
+import { createExpense, getExpenses, getSummary } from "../services/expenseService";
 import ExpenseController from "../components/ExpenseController";
+import SummaryCard from "../components/SummaryCard";
+import { Link } from "react-router-dom";
 
 export function Expenses(){
 
@@ -18,7 +20,7 @@ export function Expenses(){
                 alert("Error fetching Expenses! Try again.");
                 setLoading(false);
             }
-        }
+        };
         fetchExpenses();
     }, []);
 
@@ -26,8 +28,12 @@ export function Expenses(){
 
     return(
         <div>
-            <h1 className="text-center text-2xl font-bold">Expenses page</h1>
-            <div className="felx flex-wrap gap-4">
+            <h1 className="text-blue-600 font-serif text-center text-2xl font-bold mt-6 mb-8">Expenses</h1>
+            <div className="flex justify-around gap-8">
+                <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/addexpense">AddExpense</Link></button>
+                <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/summary">GetSummary</Link></button>
+            </div>
+            <div className="felx flex-wrap gap-4 justify-center">
             {expenses.length > 0 ? (expenses.map(expense => <ExpenseController key={expense._id} expense={expense}/>)): (<p>No Expenses Found. Add Some.</p>)}
             </div>
         </div>
@@ -79,4 +85,36 @@ export function AddExpenseFrom({onExpenseAdded}){
             </form>
         </div>
     )
+}
+
+export const Summary = () => {
+    const [Summary, setSummary] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchSummary = async() => {
+            try {
+                const response = await getSummary();
+                setSummary(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error(error);
+                alert("Error fetching summary");
+                setLoading(fasle);
+            }
+        };
+        fetchSummary();
+    },[]);
+
+    if(loading) return <p>Loading Summary</p>
+
+    return(
+        <div>
+            <h1 className="text-blue-600 font-serif text-center text-2xl font-bold mt-6 mb-8">Summary</h1>
+            <div className="felx flex-wrap gap-4 justify-center">
+            {Summary > 0 ? Summary.map(s => <SummaryCard key={s._id} s={s}/>):(<p>No Summary Found.</p>)}
+            </div>
+        </div>
+    )
+
 }
