@@ -2,6 +2,9 @@
 
 A full-stack MERN application to manage and monitor dairy farm operations efficiently — from tracking livestock and milk production to managing tasks, expenses, and daily performance.
 
+## Pitch Deck
+https://docs.google.com/presentation/d/e/2PACX-1vT1hkNmDVf-LQxTOGsQi8CaBECdIpM8vzwREoLx-8miPOXWLwUlo-BUZouNRJGcBROn4pTl5H49K9ca/pub?start=false&loop=false&delayms=3000
+
 ## 🚀 Features
 
 ### 👤 User Management
