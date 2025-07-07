@@ -4,7 +4,7 @@ export default function Footer(){
     return(
         <div>
             <nav>
-            <div className='flex flex-col justify-center m-2 bg-gray-500 p-3 rounded-2xl'>
+            <div className='flex flex-col justify-center m-2 bg-gray-500 p-3'>
                 <Link to="/">Cows</Link>
                 <Link to="/addcow">AddCow</Link>
                 <Link to="/updatedelete">UpdateAdnDeleteCow</Link>
