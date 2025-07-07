@@ -30,7 +30,7 @@ export function Cows(){
         <h1 className="text-blue-600 font-serif text-center text-2xl font-bold mt-6 mb-8">Cows</h1>
         <div className="flex gap-8 justify-around text-center m-8">
             <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/addcow">AddCow</Link></button>
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/updatedelete">UpdateAdnDeleteCow</Link></button>
+            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/updatedelete">UpdateAndDeleteCow</Link></button>
         </div>
         <div className="flex flex-wrap gap-4 justify-center">
             {cows.length > 0 ? (cows.map(cow => <CowFormModel key={cow._id} cow={cow}/>)): (<p>No Cows Found.</p>)}
@@ -114,7 +114,7 @@ export const UpdateAndDeleteForm = ({cow, onUpdate}) => {
     return(
         <div>
             {editing ? (
-                <form className="flex flex-col items-center justify-center gap-6 mt-4 bg-green-700 rounded-2xl border-2">
+                <form className="flex flex-col items-center justify-center gap-6 mt-4 mb-4 bg-green-700 rounded-2xl border-2">
                     <input className="rounded bg-amber-50 p-1 mt-2" name="tagId" placeholder="TagId" value={editedCow._id} onChange={handleChange}/>
                     <input className="rounded bg-amber-50 p-1 mt-2" name="breed"placeholder="Breed" value={editedCow.breed} onChange={handleChange}/>
                     <input className="rounded bg-amber-50 p-1" name="age" placeholder="Age" value={editedCow.age} onChange={handleChange}/>
@@ -134,7 +134,7 @@ export const UpdateAndDeleteForm = ({cow, onUpdate}) => {
                 </div>
             )}
             <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5" onClick={() => setEditing(!editing)}>{editing ? 'Cancel': 'Edit'}</button>
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5" onClick={handleDelete}>Delete</button>
+            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5 ml-10" onClick={handleDelete}>Delete</button>
         </div>
     )
 }

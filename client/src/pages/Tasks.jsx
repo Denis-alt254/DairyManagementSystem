@@ -132,7 +132,7 @@ export const UpdateAndDeleteTask = ({task, onUpdate}) => {
                 </div>
             )}
             <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5" onClick={() => setEditing(!editing)}>{editing ? 'Cancel': 'Edit'}</button>
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5" onClick={handleDelete}>Delete</button>
+            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5 ml-10" onClick={handleDelete}>Delete</button>
         </div>
     )
 }
