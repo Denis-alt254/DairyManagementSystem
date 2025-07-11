@@ -4,8 +4,8 @@ import Tasks from './Tasks'
 
 export function Dashboard(){
     return(
-        <div>
-            <p className='text-blue-600 font-serif text-2xl mt-6 text-center font-bold'>Dashboard</p>
+        <div className='flex flex-col'>
+            <p className='p'>Dashboard</p>
             <Cows />
             <Milk />
             <Tasks />

@@ -26,12 +26,12 @@ export default function Tasks(){
 
     return(
         <>
-        <h1 className="text-blue-600 font-serif text-2xl text-center font-bold mt-6 mb-8">Tasks</h1>
-        <div className="flex justify-around gap-8">
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/addtask">AddTask</Link></button>
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/updatedeletetasks">UpdateAndDeleteTask</Link></button>
+        <h1 className="h1">Tasks</h1>
+        <div className="divButton">
+            <button className="button"><Link className="p-3" to="/addtask">AddTask</Link></button>
+            <button className="button"><Link className="p-3" to="/updatedeletetasks">Update/Delete</Link></button>
         </div>
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="div">
             {tasks.length > 0 ? (tasks.map(task => <TaskCard key={task._id} task={task}/>)):(<p>Their are no Tasks. Add some.</p>)}
         </div>
         </>
@@ -70,13 +70,13 @@ export function AddTasksForm({onTaskAdded}){
 
     return(
         <div>
-            <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-6 mt-4 bg-green-700 rounded-2xl border-2">
-                <input className="rounded bg-amber-50 p-1 mt-2" name="title" placeholder="Title" value={formData.title} onChange={handleformChange}/>
-                <input className="rounded bg-amber-50 p-1" name="description" placeholder="Description" value={formData.description} onChange={handleformChange}/>
-                <input className="rounded bg-amber-50 p-1" name="assignedTo" placeholder="AssignedTo" value={formData.assignedTo} onChange={handleformChange}/>
-                <input className="rounded bg-amber-50 p-1" name="dueDate" placeholder="DueDate" value={formData.dueDate} onChange={handleformChange}/>
-                <input className="rounded bg-amber-50 p-1" name="status" placeholder="Status" value={formData.status} onChange={handleformChange}/>
-                <button type="submit" className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5">AddTask</button>
+            <form onSubmit={handleSubmit} className="form">
+                <input className="input mt-2" name="title" placeholder="Title" value={formData.title} onChange={handleformChange}/>
+                <input className="input" name="description" placeholder="Description" value={formData.description} onChange={handleformChange}/>
+                <input className="input" name="assignedTo" placeholder="AssignedTo" value={formData.assignedTo} onChange={handleformChange}/>
+                <input className="input" name="dueDate" placeholder="DueDate" value={formData.dueDate} onChange={handleformChange}/>
+                <input className="input" name="status" placeholder="Status" value={formData.status} onChange={handleformChange}/>
+                <button type="submit" className="button">AddTask</button>
             </form>
         </div>
     )
@@ -112,27 +112,27 @@ export const UpdateAndDeleteTask = ({task, onUpdate}) => {
     return(
         <div>
             {editing ? (
-                <form>
-                    <input className="rounded bg-amber-50 p-1 mt-2" name="title" placeholder="Title" value={editedTask.title} onChange={handleChange}/>
-                    <input className="rounded bg-amber-50 p-1" name="description" placeholder="Description" value={editedTask.description} onChange={handleChange}/>
-                    <input className="rounded bg-amber-50 p-1" name="assignedTo" placeholder="AssignedTo" value={editedTask.assignedTo} onChange={handleChange}/>
-                    <input className="rounded bg-amber-50 p-1" name="dueDate" placeholder="DueDate" value={editedTask.dueDate} onChange={handleChange}/>
-                    <input className="rounded bg-amber-50 p-1" name="status" placeholder="Status" value={editedTask.status} onChange={handleChange}/>
-                    <button onClick={handleUpdate} className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5">Save</button>
+                <form className="form">
+                    <input className="input mt-2" name="title" placeholder="Title" value={editedTask.title} onChange={handleChange}/>
+                    <input className="input" name="description" placeholder="Description" value={editedTask.description} onChange={handleChange}/>
+                    <input className="input" name="assignedTo" placeholder="AssignedTo" value={editedTask.assignedTo} onChange={handleChange}/>
+                    <input className="input" name="dueDate" placeholder="DueDate" value={editedTask.dueDate} onChange={handleChange}/>
+                    <input className="input" name="status" placeholder="Status" value={editedTask.status} onChange={handleChange}/>
+                    <button onClick={handleUpdate} className="button">Save</button>
                 </form>
             ):(
-                <div className="flex flex-wrap gap-4 justify-center">
-                    <ul className="p-4 bg-[#733DB6] shadow rounded">
-                        <li className="rounded bg-violet-400 p-1 mt-2">Title: {task._id}</li>
-                        <li className="rounded bg-violet-400 p-1">Description: {task.description}</li>
-                        <li className="rounded bg-violet-400 p-1">Assigend To: {task.assignedTo}</li>
-                        <li className="rounded bg-violet-400 p-1">DueDate: {task.dueDate}</li>
-                        <li className="rounded bg-violet-400 p-1">Status: {task.status}</li>
+                <div className="div">
+                    <ul className="">
+                        <li className="li mt-2">Title: {task._id}</li>
+                        <li className="li">Description: {task.description}</li>
+                        <li className="li">Assigend To: {task.assignedTo}</li>
+                        <li className="li">DueDate: {task.dueDate}</li>
+                        <li className="li">Status: {task.status}</li>
                     </ul>
                 </div>
             )}
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5" onClick={() => setEditing(!editing)}>{editing ? 'Cancel': 'Edit'}</button>
-            <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5 ml-10" onClick={handleDelete}>Delete</button>
+            <button className="button" onClick={() => setEditing(!editing)}>{editing ? 'Cancel': 'Edit'}</button>
+            <button className="button ml-10" onClick={handleDelete}>Delete</button>
         </div>
     )
 }

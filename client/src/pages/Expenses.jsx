@@ -27,13 +27,13 @@ export function Expenses(){
     if(loading) return <p>Loading Expenses....</p>
 
     return(
-        <div>
-            <h1 className="text-blue-600 font-serif text-center text-2xl font-bold mt-6 mb-8">Expenses</h1>
-            <div className="flex justify-around gap-8">
-                <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/addexpense">AddExpense</Link></button>
-                <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5"><Link to="/summary">GetSummary</Link></button>
+        <div className="flex flex-col">
+            <h1 className="h1">Expenses</h1>
+            <div className="divButton">
+                <button className="button mb-5"><Link to="/addexpense">AddExpense</Link></button>
+                <button className="button mb-5"><Link to="/summary">GetSummary</Link></button>
             </div>
-            <div className="felx flex-wrap gap-4 justify-center">
+            <div className="div">
             {expenses.length > 0 ? (expenses.map(expense => <ExpenseController key={expense._id} expense={expense}/>)): (<p>No Expenses Found. Add Some.</p>)}
             </div>
         </div>
@@ -74,14 +74,14 @@ export function AddExpenseFrom({onExpenseAdded}){
 
     return(
         <div>
-            <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-6 mt-4 bg-green-700 rounded-2xl border-2">
-                <input className="rounded bg-amber-50 p-1 mt-2" name="type" placeholder="Type" value={formData.type} onChange={handleformChange} />
-                <input className="rounded bg-amber-50 p-1" name="amount" placeholder="Amount" value={formData.amount} onChange={handleformChange} />
-                <input className="rounded bg-amber-50 p-1" name="description" placeholder="Description" value={formData.description} onChange={handleformChange} />
-                <input className="rounded bg-amber-50 p-1" name="date" placeholder="Date" value={formData.date} onChange={handleformChange} />
-                <input className="rounded bg-amber-50 p-1" name="category" placeholder="Category" value={formData.category} onChange={handleformChange} />
-                <input className="rounded bg-amber-50 p-1" name="addedBy" placeholder="AddedBy" value={formData.addedBy} onChange={handleformChange} />
-                <button className="bg-violet-700 rounded-2xl p-4 text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5">AddExpense</button>
+            <form onSubmit={handleSubmit} className="form">
+                <input className="input mt-2" name="type" placeholder="Type" value={formData.type} onChange={handleformChange} />
+                <input className="input" name="amount" placeholder="Amount" value={formData.amount} onChange={handleformChange} />
+                <input className="input" name="description" placeholder="Description" value={formData.description} onChange={handleformChange} />
+                <input className="input" name="date" placeholder="Date" value={formData.date} onChange={handleformChange} />
+                <input className="input" name="category" placeholder="Category" value={formData.category} onChange={handleformChange} />
+                <input className="input" name="addedBy" placeholder="AddedBy" value={formData.addedBy} onChange={handleformChange} />
+                <button className="button mb-5">AddExpense</button>
             </form>
         </div>
     )
@@ -110,8 +110,8 @@ export const Summary = () => {
 
     return(
         <div>
-            <h1 className="text-blue-600 font-serif text-center text-2xl font-bold mt-6 mb-8">Summary</h1>
-            <div className="felx flex-wrap gap-4 justify-center">
+            <h1 className="h1">Summary</h1>
+            <div className="div">
             {Summary > 0 ? Summary.map(s => <SummaryCard key={s._id} s={s}/>):(<p>No Summary Found.</p>)}
             </div>
         </div>
