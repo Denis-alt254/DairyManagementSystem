@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createCow, deleteCow, getCows, updateCow } from "../services/cowService";
-import CowFormModel from "../components/CowFormModal";
+import CowFormModel from "../components/CowFormModel";
 import { Link } from "react-router-dom";
 
 export function Cows(){
