@@ -21,7 +21,7 @@ function App(){
         </div>
         <main>
           <Routes>
-            <Route path="/" element = {<Cows />}></Route>
+            <Route path="/cows" element = {<Cows />}></Route>
             <Route path="/addcow" element={<AddCowForm />}/>
             <Route path="/updatedelete" element={<UpdateAndDeleteForm />}/>
             <Route path="/tasks" element={<Tasks />}/>
