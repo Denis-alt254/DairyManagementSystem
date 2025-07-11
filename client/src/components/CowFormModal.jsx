@@ -1,13 +1,13 @@
 function CowFormModel({cow}){
     return(
-        <div className="flex flex-wrap gap-4 justify-center">
-            <ul className="p-4 bg-[#ebe8eef6] shadow rounded">
-                <span className="text-center text-2xl font-bold">Cow: {cow._id}</span>
-                <li className="rounded bg-violet-400 p-1 mt-2">Breed: {cow.breed}</li>
-                <li className="rounded bg-violet-400 p-1">Age: {cow.age}</li>
-                <li className="rounded bg-violet-400 p-1">Health: {cow.healthStatus}</li>
-                <li className="rounded bg-violet-400 p-1">Average: {cow.averageMilk}</li>
-                <li className="rounded bg-violet-400 p-1">Added By: {cow.addedBy}</li>
+        <div className="div">
+            <ul className="ul">
+                <span className="span">Cow: {cow._id}</span>
+                <li className="li mt-2">Breed: {cow.breed}</li>
+                <li className="li">Age: {cow.age}</li>
+                <li className="li">Health: {cow.healthStatus}</li>
+                <li className="li">Average: {cow.averageMilk}</li>
+                <li className="li">Added By: {cow.addedBy}</li>
             </ul>
         </div>
     )
