@@ -1,25 +1,91 @@
 @import "tailwindcss";
-.background {
-  display: flex;
-  height: 100vh;
+.background{
+  background-color: #2c3e50;
 }
 .main{
-  margin-left: 250px; /* Offset to make space for fixed sidebar */
-  padding: 1rem;
+  /* margin-left: 150px; Offset to make space for fixed sidebar */
+  padding: 8px;
   height: 100vh;
   overflow-y: scroll;
-  background-color: #ecf0f1;
+  background-color: transparent;
   width: 100%;
 }
+.nav{
+  width: 100%;
+  overflow-x: auto;
+}
 .sideBar{
-  width: 250px;
   background-color: #2c3e50;
   color: white;
-  padding: 1rem;
   flex-shrink: 0;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   overflow-y: auto;
+}
+
+@media (min-width: 751px){
+  .main{
+    margin-left: 150px;
+  }
+}
+@media (max-width: 750px) {
+  .sideBar{
+    display: none;
+  }
+  .main{
+    width: 100%;
+  }
+}
+
+@layer base{
+  p{
+    @apply text-white font-serif text-2xl mt-6 text-center font-bold
+  }
+  h1{
+    @apply text-white font-serif text-center text-2xl font-bold mt-6 mb-8 max-w-screen
+  }
+  div{
+    @apply flex flex-wrap gap-4 justify-center
+  }
+  ul{
+    @apply p-4 bg-transparent shadow rounded border-amber-50 border-2
+  }
+  li{
+    @apply rounded bg-transparent p-1 text-white
+  }
+  span {
+    @apply text-center text-2xl font-bold text-white
+  }
+}
+
+@layer components{
+  .form{
+    @apply flex flex-col items-center justify-center gap-6 mt-4 bg-green-700 rounded-2xl border-2
+  }
+  .input{
+    @apply rounded bg-amber-50 p-1
+  }
+  .button{
+    @apply bg-violet-700 rounded-2xl text-amber-50 hover:bg-blue-600 hover:text-teal-100 mb-5 h-10 max-w-3xl p-3 
+  }
+  .divButton {
+    @apply flex justify-around gap-8
+  }
+  .footer{
+    @apply flex flex-col justify-center text-center m-2 bg-gray-950 p-3 w-[100%]
+  }
+  .navbar{
+    @apply flex flex-wrap justify-between sm:w-2xl md:w-3xl lg:w-4xl m-2 bg-violet-500 p-3 rounded-2xl text-white 
+  }
+  .sidebar{
+    @apply flex flex-col bg-gray-800 p-3 h-screen w-[150px]
+  }
+  .sideItem{
+    @apply flex flex-col
+  }
+  .footItems{
+    @apply text-white
+  }
 }

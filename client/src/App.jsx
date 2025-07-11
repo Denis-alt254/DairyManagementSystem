@@ -11,12 +11,14 @@ import SideBar from "./components/Sidebar";
 
 function App(){
   return(
-    <div className="flex background">
+    <div className="background">
       <div className="sideBar">
         <SideBar />
       </div>
       <div className="main">
+        <div className="nav">
         <Navbar />
+        </div>
         <main>
           <Routes>
             <Route path="/" element = {<Cows />}></Route>
