@@ -6,7 +6,7 @@ export default function SideBar(){
             <div className='sidebar'>
                 <Link to="/dashboard">Dashboard</Link>
                 <div className="sideItem">
-                    <Link to="/">Cows</Link>
+                    <Link to="/cows">Cows</Link>
                 </div>
                 <div className="sideItem">
                     <Link to="/tasks">Tasks</Link>
