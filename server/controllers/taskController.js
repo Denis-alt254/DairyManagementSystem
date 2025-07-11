@@ -22,11 +22,16 @@ const createTask = async(req, res) => {
 
 const updateTask = async (req, res) => {
     try {
-        const task = await Task.find(t => t.title === parse(req.params.title));
+        const task = await Task.findOne({ title: req.params.title });
+        if (!task) {
+            return res.status(404).json({ message: "Task not found" });
+        }
+
         Object.assign(task, req.body);
+        await task.save(); // Save the changes!
         res.json(task);
     } catch (error) {
-        res.status(404).json({message: error.message});
+        res.status(500).json({ message: error.message });
     }
 };
 
